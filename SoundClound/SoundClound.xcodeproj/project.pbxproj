@@ -7,21 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2709873820DA3A5700AB47D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709873720DA3A5700AB47D6 /* HomeViewController.swift */; };
+		2709874420DA5F8000AB47D6 /* HomeGenreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709874220DA5F8000AB47D6 /* HomeGenreCell.swift */; };
+		2709874520DA5F8000AB47D6 /* HomeGenreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2709874320DA5F8000AB47D6 /* HomeGenreCell.xib */; };
+		2709874820DA5FBE00AB47D6 /* HomeSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709874620DA5FBE00AB47D6 /* HomeSongCell.swift */; };
+		2709874920DA5FBE00AB47D6 /* HomeSongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2709874720DA5FBE00AB47D6 /* HomeSongCell.xib */; };
+		275B716920DB66D800C1FE36 /* songs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B716820DB66D800C1FE36 /* songs.swift */; };
+		275B717820DB80D000C1FE36 /* Find My Way Home.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 275B717120DB80CD00C1FE36 /* Find My Way Home.mp3 */; };
+		275B717920DB80D000C1FE36 /* Mighty Fine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 275B717220DB80CE00C1FE36 /* Mighty Fine.mp3 */; };
+		275B717A20DB80D000C1FE36 /* Scarlet Fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 275B717320DB80CE00C1FE36 /* Scarlet Fire.mp3 */; };
+		275B717B20DB80D000C1FE36 /* A Girl in Oakland.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 275B717420DB80CF00C1FE36 /* A Girl in Oakland.mp3 */; };
+		275B717C20DB80D000C1FE36 /* Fingers.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 275B717520DB80CF00C1FE36 /* Fingers.mp3 */; };
+		275B717D20DB80D000C1FE36 /* In Case You Forgot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 275B717620DB80D000C1FE36 /* In Case You Forgot.mp3 */; };
+		275B717E20DB80D000C1FE36 /* Otis McMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 275B717720DB80D000C1FE36 /* Otis McMusic.mp3 */; };
 		276BCD4B20D9F21E007E3AD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BCD4A20D9F21E007E3AD7 /* AppDelegate.swift */; };
-		276BCD4D20D9F21E007E3AD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BCD4C20D9F21E007E3AD7 /* ViewController.swift */; };
 		276BCD5020D9F21E007E3AD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 276BCD4E20D9F21E007E3AD7 /* Main.storyboard */; };
 		276BCD5220D9F21E007E3AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276BCD5120D9F21E007E3AD7 /* Assets.xcassets */; };
 		276BCD5520D9F21E007E3AD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 276BCD5320D9F21E007E3AD7 /* LaunchScreen.storyboard */; };
+		FFE6E990253A605D3267A911 /* Pods_SoundClound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9269992E2FCEC7B40C48FBEC /* Pods_SoundClound.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2709873720DA3A5700AB47D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2709874220DA5F8000AB47D6 /* HomeGenreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGenreCell.swift; sourceTree = "<group>"; };
+		2709874320DA5F8000AB47D6 /* HomeGenreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeGenreCell.xib; sourceTree = "<group>"; };
+		2709874620DA5FBE00AB47D6 /* HomeSongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSongCell.swift; sourceTree = "<group>"; };
+		2709874720DA5FBE00AB47D6 /* HomeSongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeSongCell.xib; sourceTree = "<group>"; };
+		275B716820DB66D800C1FE36 /* songs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = songs.swift; sourceTree = "<group>"; };
+		275B717120DB80CD00C1FE36 /* Find My Way Home.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Find My Way Home.mp3"; sourceTree = "<group>"; };
+		275B717220DB80CE00C1FE36 /* Mighty Fine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mighty Fine.mp3"; sourceTree = "<group>"; };
+		275B717320DB80CE00C1FE36 /* Scarlet Fire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Scarlet Fire.mp3"; sourceTree = "<group>"; };
+		275B717420DB80CF00C1FE36 /* A Girl in Oakland.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "A Girl in Oakland.mp3"; sourceTree = "<group>"; };
+		275B717520DB80CF00C1FE36 /* Fingers.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Fingers.mp3; sourceTree = "<group>"; };
+		275B717620DB80D000C1FE36 /* In Case You Forgot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "In Case You Forgot.mp3"; sourceTree = "<group>"; };
+		275B717720DB80D000C1FE36 /* Otis McMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Otis McMusic.mp3"; sourceTree = "<group>"; };
 		276BCD4720D9F21E007E3AD7 /* SoundClound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundClound.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		276BCD4A20D9F21E007E3AD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		276BCD4C20D9F21E007E3AD7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		276BCD4F20D9F21E007E3AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		276BCD5120D9F21E007E3AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		276BCD5420D9F21E007E3AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		276BCD5620D9F21E007E3AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F6A169F11C74D2ECBEDCC2F /* Pods-SoundClound.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundClound.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundClound/Pods-SoundClound.debug.xcconfig"; sourceTree = "<group>"; };
+		9269992E2FCEC7B40C48FBEC /* Pods_SoundClound.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoundClound.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFE505517BF1D4417B315A0D /* Pods-SoundClound.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundClound.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundClound/Pods-SoundClound.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +57,88 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFE6E990253A605D3267A911 /* Pods_SoundClound.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2709873D20DA5D2E00AB47D6 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				275B717020DB80A500C1FE36 /* Song */,
+				275B716E20DB778300C1FE36 /* Player */,
+				2709874020DA5D4700AB47D6 /* Download */,
+				2709873F20DA5D3F00AB47D6 /* Search */,
+				2709873E20DA5D3A00AB47D6 /* Home */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		2709873E20DA5D3A00AB47D6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2709874120DA5D5F00AB47D6 /* View */,
+				2709873720DA3A5700AB47D6 /* HomeViewController.swift */,
+				275B716820DB66D800C1FE36 /* songs.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2709873F20DA5D3F00AB47D6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		2709874020DA5D4700AB47D6 /* Download */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Download;
+			sourceTree = "<group>";
+		};
+		2709874120DA5D5F00AB47D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2709874220DA5F8000AB47D6 /* HomeGenreCell.swift */,
+				2709874320DA5F8000AB47D6 /* HomeGenreCell.xib */,
+				2709874620DA5FBE00AB47D6 /* HomeSongCell.swift */,
+				2709874720DA5FBE00AB47D6 /* HomeSongCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		275B716E20DB778300C1FE36 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		275B717020DB80A500C1FE36 /* Song */ = {
+			isa = PBXGroup;
+			children = (
+				275B717420DB80CF00C1FE36 /* A Girl in Oakland.mp3 */,
+				275B717120DB80CD00C1FE36 /* Find My Way Home.mp3 */,
+				275B717520DB80CF00C1FE36 /* Fingers.mp3 */,
+				275B717620DB80D000C1FE36 /* In Case You Forgot.mp3 */,
+				275B717220DB80CE00C1FE36 /* Mighty Fine.mp3 */,
+				275B717720DB80D000C1FE36 /* Otis McMusic.mp3 */,
+				275B717320DB80CE00C1FE36 /* Scarlet Fire.mp3 */,
+			);
+			path = Song;
+			sourceTree = "<group>";
+		};
 		276BCD3E20D9F21E007E3AD7 = {
 			isa = PBXGroup;
 			children = (
 				276BCD4920D9F21E007E3AD7 /* SoundClound */,
 				276BCD4820D9F21E007E3AD7 /* Products */,
+				970F6EEB8F9D062A8FDD03DA /* Pods */,
+				E1714E33CFB9693EE2E40E58 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +153,31 @@
 		276BCD4920D9F21E007E3AD7 /* SoundClound */ = {
 			isa = PBXGroup;
 			children = (
+				2709873D20DA5D2E00AB47D6 /* Scene */,
 				276BCD4A20D9F21E007E3AD7 /* AppDelegate.swift */,
-				276BCD4C20D9F21E007E3AD7 /* ViewController.swift */,
 				276BCD4E20D9F21E007E3AD7 /* Main.storyboard */,
 				276BCD5120D9F21E007E3AD7 /* Assets.xcassets */,
 				276BCD5320D9F21E007E3AD7 /* LaunchScreen.storyboard */,
 				276BCD5620D9F21E007E3AD7 /* Info.plist */,
 			);
 			path = SoundClound;
+			sourceTree = "<group>";
+		};
+		970F6EEB8F9D062A8FDD03DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F6A169F11C74D2ECBEDCC2F /* Pods-SoundClound.debug.xcconfig */,
+				CFE505517BF1D4417B315A0D /* Pods-SoundClound.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E1714E33CFB9693EE2E40E58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9269992E2FCEC7B40C48FBEC /* Pods_SoundClound.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 276BCD5920D9F21E007E3AD7 /* Build configuration list for PBXNativeTarget "SoundClound" */;
 			buildPhases = (
+				A7A44F3AB338EA189B8E722B /* [CP] Check Pods Manifest.lock */,
 				276BCD4320D9F21E007E3AD7 /* Sources */,
 				276BCD4420D9F21E007E3AD7 /* Frameworks */,
 				276BCD4520D9F21E007E3AD7 /* Resources */,
+				2790E241E95733B1AD6636E0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,21 +241,72 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				275B717B20DB80D000C1FE36 /* A Girl in Oakland.mp3 in Resources */,
+				2709874520DA5F8000AB47D6 /* HomeGenreCell.xib in Resources */,
 				276BCD5520D9F21E007E3AD7 /* LaunchScreen.storyboard in Resources */,
+				275B717A20DB80D000C1FE36 /* Scarlet Fire.mp3 in Resources */,
 				276BCD5220D9F21E007E3AD7 /* Assets.xcassets in Resources */,
+				275B717820DB80D000C1FE36 /* Find My Way Home.mp3 in Resources */,
+				2709874920DA5FBE00AB47D6 /* HomeSongCell.xib in Resources */,
 				276BCD5020D9F21E007E3AD7 /* Main.storyboard in Resources */,
+				275B717920DB80D000C1FE36 /* Mighty Fine.mp3 in Resources */,
+				275B717D20DB80D000C1FE36 /* In Case You Forgot.mp3 in Resources */,
+				275B717E20DB80D000C1FE36 /* Otis McMusic.mp3 in Resources */,
+				275B717C20DB80D000C1FE36 /* Fingers.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2790E241E95733B1AD6636E0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SoundClound/Pods-SoundClound-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundClound/Pods-SoundClound-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7A44F3AB338EA189B8E722B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SoundClound-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		276BCD4320D9F21E007E3AD7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				276BCD4D20D9F21E007E3AD7 /* ViewController.swift in Sources */,
 				276BCD4B20D9F21E007E3AD7 /* AppDelegate.swift in Sources */,
+				2709874820DA5FBE00AB47D6 /* HomeSongCell.swift in Sources */,
+				2709874420DA5F8000AB47D6 /* HomeGenreCell.swift in Sources */,
+				2709873820DA3A5700AB47D6 /* HomeViewController.swift in Sources */,
+				275B716920DB66D800C1FE36 /* songs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +441,7 @@
 		};
 		276BCD5A20D9F21E007E3AD7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F6A169F11C74D2ECBEDCC2F /* Pods-SoundClound.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -286,6 +456,7 @@
 		};
 		276BCD5B20D9F21E007E3AD7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFE505517BF1D4417B315A0D /* Pods-SoundClound.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

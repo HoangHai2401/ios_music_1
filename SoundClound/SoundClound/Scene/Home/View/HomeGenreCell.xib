@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HomeGenreCell" rowHeight="237" id="KGk-i7-Jjw" customClass="HomeGenreCell" customModule="SoundClound" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="466" height="237"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="466" height="236.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lqn-j4-DVg">
+                        <rect key="frame" x="20" y="11" width="426" height="215"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhN-Td-4Zr">
+                                <rect key="frame" x="5" y="0.0" width="416" height="47.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gK-RK-RDD">
+                                <rect key="frame" x="5" y="52.5" width="416" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="H74-iP-FSa">
+                                <rect key="frame" x="5" y="78.5" width="416" height="131.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WEg-7B-qQd">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H74-iP-FSa" firstAttribute="leading" secondItem="Lqn-j4-DVg" secondAttribute="leading" constant="5" id="5gj-gc-p6E"/>
+                            <constraint firstItem="1gK-RK-RDD" firstAttribute="top" secondItem="bhN-Td-4Zr" secondAttribute="bottom" constant="5" id="CN7-jO-IO1"/>
+                            <constraint firstItem="H74-iP-FSa" firstAttribute="top" secondItem="1gK-RK-RDD" secondAttribute="bottom" constant="5" id="GxR-ez-T9l"/>
+                            <constraint firstItem="bhN-Td-4Zr" firstAttribute="top" secondItem="Lqn-j4-DVg" secondAttribute="top" id="Job-pr-wur"/>
+                            <constraint firstItem="1gK-RK-RDD" firstAttribute="leading" secondItem="Lqn-j4-DVg" secondAttribute="leading" constant="5" id="SEa-lR-g0O"/>
+                            <constraint firstItem="bhN-Td-4Zr" firstAttribute="leading" secondItem="Lqn-j4-DVg" secondAttribute="leading" constant="5" id="XGO-GR-vSq"/>
+                            <constraint firstItem="1gK-RK-RDD" firstAttribute="width" secondItem="bhN-Td-4Zr" secondAttribute="width" id="Xut-dZ-bFJ"/>
+                            <constraint firstItem="H74-iP-FSa" firstAttribute="width" secondItem="1gK-RK-RDD" secondAttribute="width" id="kX1-RJ-XIe"/>
+                            <constraint firstAttribute="trailing" secondItem="bhN-Td-4Zr" secondAttribute="trailing" constant="5" id="knr-YZ-0mJ"/>
+                            <constraint firstAttribute="bottom" secondItem="H74-iP-FSa" secondAttribute="bottom" constant="5" id="owq-Y0-vu9"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="Lqn-j4-DVg" secondAttribute="trailing" id="UTT-yJ-H8a"/>
+                    <constraint firstItem="Lqn-j4-DVg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="aEV-m5-khn"/>
+                    <constraint firstItem="Lqn-j4-DVg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ehI-Ur-gm7"/>
+                    <constraint firstItem="bhN-Td-4Zr" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="1/5" id="oUn-7r-4tC"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Lqn-j4-DVg" secondAttribute="bottom" id="tmL-nx-ImH"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="collectionView" destination="H74-iP-FSa" id="SPV-4N-c1V"/>
+                <outlet property="descriptionLabel" destination="1gK-RK-RDD" id="vCW-Od-i0v"/>
+                <outlet property="genreLabel" destination="bhN-Td-4Zr" id="MFo-Xf-nRq"/>
+            </connections>
+            <point key="canvasLocation" x="63" y="159"/>
+        </tableViewCell>
+    </objects>
+</document>

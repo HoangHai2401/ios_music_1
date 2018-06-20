@@ -24,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="1988"/>
+            <point key="canvasLocation" x="87" y="1757"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="cYl-3O-AbG">
@@ -33,30 +33,85 @@
                     <view key="view" contentMode="scaleToFill" id="rqI-UE-K4Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CPl-SO-ecP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CPl-SO-ecP" firstAttribute="top" secondItem="gwa-Xs-26Y" secondAttribute="top" id="Saf-rM-BCu"/>
+                            <constraint firstItem="gwa-Xs-26Y" firstAttribute="trailing" secondItem="CPl-SO-ecP" secondAttribute="trailing" id="TPE-Zs-RBc"/>
+                            <constraint firstItem="gwa-Xs-26Y" firstAttribute="bottom" secondItem="CPl-SO-ecP" secondAttribute="bottom" id="ZHE-eb-Wnh"/>
+                            <constraint firstItem="CPl-SO-ecP" firstAttribute="leading" secondItem="gwa-Xs-26Y" secondAttribute="leading" id="wY2-dX-FTU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gwa-Xs-26Y"/>
                     </view>
                     <navigationItem key="navigationItem" id="BhG-4e-77M"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uh7-0O-sqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="508"/>
+            <point key="canvasLocation" x="130" y="968"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="mPF-Vi-91J">
+        <!--Table View Controller-->
+        <scene sceneID="1tD-aa-wsu">
             <objects>
-                <viewController id="BDw-2e-smi" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="r03-W1-V5Y">
+                <tableViewController id="HM6-Ny-bO8" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f5s-jb-K1o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Kvq-RG-PBb">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kvq-RG-PBb" id="wax-Oa-b8T">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HM6-Ny-bO8" id="I9U-Du-we5"/>
+                            <outlet property="delegate" destination="HM6-Ny-bO8" id="Nwk-jA-aYa"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P0Y-xB-l88" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1186" y="252"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="mPF-Vi-91J">
+            <objects>
+                <viewController storyboardIdentifier="Home" id="BDw-2e-smi" customClass="HomeViewController" customModule="SoundClound" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r03-W1-V5Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S5H-nt-2Jc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kxp-gO-smX" firstAttribute="trailing" secondItem="S5H-nt-2Jc" secondAttribute="trailing" id="JOU-L5-9xX"/>
+                            <constraint firstItem="S5H-nt-2Jc" firstAttribute="leading" secondItem="kxp-gO-smX" secondAttribute="leading" id="UYM-W0-uOP"/>
+                            <constraint firstItem="S5H-nt-2Jc" firstAttribute="top" secondItem="kxp-gO-smX" secondAttribute="top" id="YIz-IK-Sxe"/>
+                            <constraint firstItem="kxp-gO-smX" firstAttribute="bottom" secondItem="S5H-nt-2Jc" secondAttribute="bottom" id="e7x-ed-2De"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kxp-gO-smX"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wr4-yq-Jcf"/>
+                    <connections>
+                        <outlet property="tableView" destination="S5H-nt-2Jc" id="2tw-jx-WMM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KkW-qr-tjU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="1184"/>
+            <point key="canvasLocation" x="128.80000000000001" y="251.42428785607197"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="E0p-8V-QvS">
@@ -81,7 +136,7 @@
         <scene sceneID="Ncu-Y6-3j7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bUe-4S-bxb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Download" selectedImage="DownloadSelected" id="Hps-VI-kLI"/>
+                    <tabBarItem key="tabBarItem" title="" image="DownloadIcon" selectedImage="DownloadIconSelected" id="Hps-VI-kLI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5dS-rM-IV2">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -94,13 +149,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5x-rb-b9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-759" y="1988"/>
+            <point key="canvasLocation" x="-698" y="1758"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1Xs-n4-9Ve">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F6l-IM-Hpg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Home" selectedImage="Homeselected" id="b0b-PT-k21"/>
+                    <tabBarItem key="tabBarItem" title="" image="HomeIcon" selectedImage="HomeIconselected" id="b0b-PT-k21"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ln1-fS-baX">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -113,13 +168,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uip-QH-Uda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-759" y="1185"/>
+            <point key="canvasLocation" x="-698" y="253"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cPX-Jv-6FM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5HX-Ft-fDW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="search" selectedImage="searchselected" id="tso-h0-dpf"/>
+                    <tabBarItem key="tabBarItem" title="" image="searchIcon" selectedImage="searchIconselected" id="tso-h0-dpf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T6b-zp-xiL">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -132,15 +187,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pe2-VA-vNM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-758.39999999999998" y="508.24587706146929"/>
+            <point key="canvasLocation" x="-698" y="968"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Download" width="25" height="25"/>
-        <image name="DownloadSelected" width="25" height="25"/>
-        <image name="Home" width="25" height="25"/>
-        <image name="Homeselected" width="25" height="25"/>
-        <image name="search" width="25" height="25"/>
-        <image name="searchselected" width="25" height="25"/>
+        <image name="DownloadIcon" width="25" height="25"/>
+        <image name="DownloadIconSelected" width="25" height="25"/>
+        <image name="HomeIcon" width="25" height="25"/>
+        <image name="HomeIconselected" width="25" height="25"/>
+        <image name="searchIcon" width="25" height="25"/>
+        <image name="searchIconselected" width="25" height="25"/>
     </resources>
 </document>
