@@ -8,6 +8,7 @@
 
 import UIKit
 import Reusable
+import Alamofire
 
 private struct parameter {
     static let tableViewCellHeight = 280
@@ -21,11 +22,27 @@ final class HomeViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
+    private let genreRepository: GenreRepository = GenreRepositoryImpl(api: APIService.share)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(cellType: HomeGenreCell.self)
         tableView.delegate = self
         tableView.dataSource = self
+        //test fetching data
+        genreRepository.getGenre(kind: "trending", genre: "soundcloud:genres:all-music", limit: 10, linkedPartitioning: 1) {(result) in switch result{
+        case .success(let trackCollection):
+            print(trackCollection?.genre! as Any)
+            print(trackCollection?.kind! as Any)
+            if let trackList = trackCollection?.trackList{
+                for trackList in trackList{
+                    print(trackList.trackModel?.title! as Any)
+                    print(trackList.trackModel?.description! as Any)
+                }
+            }
+        case .failure:
+            print("Fail to retrieve data")
+            }}
     }
 }
 
