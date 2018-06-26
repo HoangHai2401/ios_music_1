@@ -11,7 +11,7 @@ import ObjectMapper
 
 final class TrackInfo: BaseModel {
     var trackModel: TrackModel?
-    
+
     required init?(map: Map) {
     }
     
