@@ -9,7 +9,7 @@
 import Foundation
 
 protocol GenreRepository {
-    func getGenre(kind: String, genre: String, limit: Int, linkedPartitioning: Int, completion: @escaping (BaseResult<trackCollectionByGenreModel>) -> Void)
+    func getGenre(kind: String, genre: String, limit: Int, linkedPartitioning: Int, completion: @escaping (BaseResult<GenreModel>) -> Void)
 }
 
 class GenreRepositoryImpl: GenreRepository {
@@ -19,9 +19,9 @@ class GenreRepositoryImpl: GenreRepository {
         self.api = api
     }
     
-    func getGenre(kind: String, genre: String, limit: Int, linkedPartitioning: Int, completion: @escaping (BaseResult<trackCollectionByGenreModel>) -> Void) {
-        let input = GenreRequest(kind: kind,genre: genre, limit: limit, linkedPartitioning: linkedPartitioning)
-        api.request(input: input) { (object: trackCollectionByGenreModel?, error) in
+    func getGenre(kind: String, genre: String, limit: Int, linkedPartitioning: Int, completion: @escaping (BaseResult<GenreModel>) -> Void) {
+        let input = GenreRequest(kind: kind, genre: genre, limit: limit, linkedPartitioning: linkedPartitioning)
+        api.request(input: input) { (object: GenreModel?, error) in
             guard let object = object else {
                 guard let error = error else {
                     completion(.failure(error: nil))

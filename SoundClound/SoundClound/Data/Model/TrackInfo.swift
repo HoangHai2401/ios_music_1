@@ -9,16 +9,14 @@
 import Foundation
 import ObjectMapper
 
-class TrackList: BaseModel {
-    var trackModel: trackModel?
-    var score: Double?
+final class TrackInfo: BaseModel {
+    var trackModel: TrackModel?
     
     required init?(map: Map) {
     }
     
     func mapping(map: Map) {
         trackModel <- map["track"]
-        score <- map["score"]
     }
 }
 

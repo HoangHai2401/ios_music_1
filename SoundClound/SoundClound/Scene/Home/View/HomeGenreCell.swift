@@ -14,9 +14,9 @@ final class HomeGenreCell: UITableViewCell, NibReusable {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
     
-    func setContentForTableViewCell(genre: String, description: String){
-        self.genreLabel.text = genre
-        self.descriptionLabel.text = description
+    func setContentForTableViewCell(genre: GenreModel){
+        self.genreLabel.text = genre.type.rawValue
+        self.descriptionLabel.text = genre.kind.rawValue
     }
 
     func setCollectionViewDataSourceDelegate<D: UICollectionViewDataSource & UICollectionViewDelegate>(_ dataSourceDelegate: D, forRow row: Int) {

@@ -23,23 +23,33 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SongImage" translatesAutoresizingMaskIntoConstraints="NO" id="s35-Fn-BkA">
                         <rect key="frame" x="0.0" y="0.0" width="206" height="188"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyS-L4-AUc">
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyS-L4-AUc" customClass="MarqueeLabel" customModule="MarqueeLabel">
                         <rect key="frame" x="5" y="256.5" width="196" height="20.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20.5" id="5UJ-H4-2lo"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="scrollRate">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opw-1B-vRz">
-                        <rect key="frame" x="5" y="208.5" width="196" height="47"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opw-1B-vRz" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                        <rect key="frame" x="5" y="225.5" width="196" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="47" id="qUh-5e-AEk"/>
+                            <constraint firstAttribute="height" constant="30" id="qUh-5e-AEk"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="scrollRate">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
             </view>
@@ -60,6 +70,7 @@
             <connections>
                 <outlet property="descriptionLabel" destination="CyS-L4-AUc" id="yLg-Bo-CHn"/>
                 <outlet property="nameLabel" destination="opw-1B-vRz" id="xQz-GC-B4w"/>
+                <outlet property="songImage" destination="s35-Fn-BkA" id="fBG-Z6-ITD"/>
             </connections>
             <point key="canvasLocation" x="112" y="170"/>
         </collectionViewCell>
