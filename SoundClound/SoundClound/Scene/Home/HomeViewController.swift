@@ -10,39 +10,58 @@ import UIKit
 import Reusable
 import Alamofire
 
-private struct parameter {
-    static let tableViewCellHeight = 280
-    static let collectionViewCellWidth = 120
-    static let collectionViewCellHeight = 190
-}
 
 final class HomeViewController: UIViewController {
-
-    var storedOffsets = [Int: CGFloat]()
+    
+    private struct Constant {
+        static let tableViewCellHeight = 310
+        static let collectionViewCellWidth = 120
+        static let collectionViewCellHeight = 190
+    }
+    
+    fileprivate var storedOffsets = [Int: CGFloat]()
+    fileprivate var genres = [GenreModel]()
     
     @IBOutlet private weak var tableView: UITableView!
     
-    private let genreRepository: GenreRepository = GenreRepositoryImpl(api: APIService.share)
+    fileprivate var genreRepository: GenreRepository!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(cellType: HomeGenreCell.self)
         tableView.delegate = self
         tableView.dataSource = self
-        //test fetching data
-        genreRepository.getGenre(kind: "trending", genre: "soundcloud:genres:all-music", limit: 10, linkedPartitioning: 1) {(result) in switch result{
-        case .success(let trackCollection):
-            print(trackCollection?.genre! as Any)
-            print(trackCollection?.kind! as Any)
-            if let trackList = trackCollection?.trackList{
-                for trackList in trackList{
-                    print(trackList.trackModel?.title! as Any)
-                    print(trackList.trackModel?.description! as Any)
+        
+        genreRepository = GenreRepositoryImpl(api: APIService.share)
+        genres = [
+            GenreModel(type: .allMusic, kind: .trending),
+            GenreModel(type: .allAudio, kind: .trending),
+            GenreModel(type: .alternativeRock, kind: .trending),
+            GenreModel(type: .ambient, kind: .trending),
+            GenreModel(type: .classical, kind: .trending),
+            GenreModel(type: .country, kind: .trending),
+        ]
+        getData()
+    }
+    
+    private func getData() {
+        for genre in genres {
+            getTracks(for: genre)
+        }
+    }
+    
+    private func getTracks(for genre: GenreModel) {
+        genreRepository.getGenre(kind: genre.kind.rawValue, genre: genre.type.query, limit: 10, linkedPartitioning: 1) { [weak self] (result) in
+            switch result {
+            case .success(let value):
+                genre.tracks = value.tracks
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
                 }
+            case .failure(let error):
+                self?.showError(message: error?.localizedDescription ?? "")
             }
-        case .failure:
-            print("Fail to retrieve data")
-            }}
+        }
     }
 }
 
@@ -61,19 +80,21 @@ extension HomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(parameter.tableViewCellHeight)
+        return CGFloat(Constant.tableViewCellHeight)
     }
 }
 
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songs.genre.count 
+        return genres.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: HomeGenreCell.self)
-        cell.setContentForTableViewCell(genre: songs.genre[indexPath.row], description: "description")
+        //TableView Cell Display
+        let genre = genres[indexPath.row]
+        cell.setContentForTableViewCell(genre: genre)
         return cell
     }
 }
@@ -82,20 +103,26 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return songs.songname.count
+        let row = collectionView.tag
+        let genre = genres[row]
+        return genre.tracks.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: HomeSongCell.self)
-        cell.setContentForCollectionViewCell(name: songs.songname[indexPath.row], description: "description")
+        //CollectionView Cell Display
+        let row = collectionView.tag
+        let genre = genres[row]
+        let track = genre.tracks[indexPath.row]
+        cell.setContentForCollectionViewCell(track: track)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: parameter.collectionViewCellWidth, height: parameter.collectionViewCellHeight)
+        return CGSize(width: Constant.collectionViewCellWidth, height: Constant.collectionViewCellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -104,4 +131,3 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         return 8
     }
 }
-

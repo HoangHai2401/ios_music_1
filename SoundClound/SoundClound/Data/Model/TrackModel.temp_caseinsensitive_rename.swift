@@ -8,7 +8,7 @@
 import UIKit
 import ObjectMapper
 
-class trackModel: BaseModel {
+class TrackModel: BaseModel {
     var title: String?
     var id: Int?
     var description: String?

@@ -12,6 +12,8 @@ pod 'Reusable', '~> 4.0'
 
 pod 'AlamofireObjectMapper'
 
+pod 'SDWebImage'
 
+pod 'MarqueeLabel/Swift'
 
 end

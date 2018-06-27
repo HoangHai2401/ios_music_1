@@ -8,19 +8,27 @@
 
 import UIKit
 import Reusable
+import SDWebImage
+import MarqueeLabel
 
 final class HomeSongCell: UICollectionViewCell, NibReusable {
 
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet weak var songImage: UIImageView!
     
-    func setContentForCollectionViewCell(name: String, description: String){
-        self.nameLabel.text = name
-        self.descriptionLabel.text = description
+    func setContentForCollectionViewCell(track: TrackInfo){
+        self.nameLabel.text = track.trackModel?.title
+        self.descriptionLabel.text = track.trackModel?.description
+        if let image = track.trackModel?.image {
+            let url = URL(string: image)
+            self.songImage.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "SongImage2"))
+        } else {
+            self.songImage.image = #imageLiteral(resourceName: "SongImage2")
+        }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 }
