@@ -34,7 +34,7 @@ final class HomeViewController: UIViewController {
         
         genreRepository = GenreRepositoryImpl(api: APIService.share)
         genres = [
-            GenreModel(type: .allMusic, kind: .trending),
+            GenreModel(type: .allMusic, kind: .top),
             GenreModel(type: .allAudio, kind: .trending),
             GenreModel(type: .alternativeRock, kind: .trending),
             GenreModel(type: .ambient, kind: .trending),
@@ -51,7 +51,7 @@ final class HomeViewController: UIViewController {
     }
     
     private func getTracks(for genre: GenreModel) {
-        genreRepository.getGenre(kind: genre.kind.rawValue, genre: genre.type.query, limit: 10, linkedPartitioning: 1) { [weak self] (result) in
+        genreRepository.getGenre(kind: genre.kind.rawValue, genre: genre.type.query, limit: 15, linkedPartitioning: 1) { [weak self] (result) in
             switch result {
             case .success(let value):
                 genre.tracks = value.tracks
@@ -129,5 +129,15 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyBroad = UIStoryboard(name: "Main", bundle: nil)
+        guard let playerView = storyBroad.instantiateViewController(withIdentifier: "Player") as? PlayerViewController else { return }
+        let row = collectionView.tag
+        let genre = genres[row]
+        let track = genre.tracks[indexPath.row]
+        playerView.track = track
+        self.navigationController?.pushViewController(playerView, animated: true)
     }
 }

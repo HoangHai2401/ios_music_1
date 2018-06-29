@@ -113,6 +113,36 @@
             </objects>
             <point key="canvasLocation" x="128.80000000000001" y="251.42428785607197"/>
         </scene>
+        <!--Player View Controller-->
+        <scene sceneID="gOv-WN-n0Q">
+            <objects>
+                <viewController storyboardIdentifier="Player" id="sIp-qh-l6M" customClass="PlayerViewController" customModule="SoundClound" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z44-Oo-e2V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JfU-CU-x4F">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dhe-zJ-HKL" firstAttribute="bottom" secondItem="JfU-CU-x4F" secondAttribute="bottom" id="VaO-9V-HJA"/>
+                            <constraint firstItem="JfU-CU-x4F" firstAttribute="leading" secondItem="dhe-zJ-HKL" secondAttribute="leading" id="bPM-Vn-mUq"/>
+                            <constraint firstItem="JfU-CU-x4F" firstAttribute="top" secondItem="dhe-zJ-HKL" secondAttribute="top" id="kOn-CX-cI9"/>
+                            <constraint firstItem="dhe-zJ-HKL" firstAttribute="trailing" secondItem="JfU-CU-x4F" secondAttribute="trailing" id="m8F-jE-VhD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dhe-zJ-HKL"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="JfU-CU-x4F" id="TET-NY-Yfy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OLq-LL-13Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1292" y="260"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="E0p-8V-QvS">
             <objects>
