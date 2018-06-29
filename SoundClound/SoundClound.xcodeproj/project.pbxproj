@@ -13,8 +13,6 @@
 		2709874820DA5FBE00AB47D6 /* HomeSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709874620DA5FBE00AB47D6 /* HomeSongCell.swift */; };
 		2709874920DA5FBE00AB47D6 /* HomeSongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2709874720DA5FBE00AB47D6 /* HomeSongCell.xib */; };
 		271E3A8120E21FFE00831DF7 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271E3A8020E21FFE00831DF7 /* PlayerViewController.swift */; };
-		271E3A8420E227A900831DF7 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271E3A8220E227A900831DF7 /* PlayerTableViewCell.swift */; };
-		271E3A8520E227A900831DF7 /* PlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 271E3A8320E227A900831DF7 /* PlayerTableViewCell.xib */; };
 		272BF69A20DC97140028AD29 /* TrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272BF69920DC97140028AD29 /* TrackInfo.swift */; };
 		272BF69C20DCA7B80028AD29 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272BF69B20DCA7B80028AD29 /* BaseModel.swift */; };
 		272BF6AB20DCD46F0028AD29 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272BF6AA20DCD46F0028AD29 /* BaseError.swift */; };
@@ -27,6 +25,8 @@
 		272BF6B920DCEE1C0028AD29 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272BF6B820DCEE1C0028AD29 /* APIKey.swift */; };
 		272BF6BB20DCEF390028AD29 /* GenreRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272BF6BA20DCEF390028AD29 /* GenreRequest.swift */; };
 		272BF6BD20DCF45E0028AD29 /* GenreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272BF6BC20DCF45E0028AD29 /* GenreRepository.swift */; };
+		273BE97F20E8837B00DE9A96 /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273BE97E20E8837B00DE9A96 /* PlayerView.xib */; };
+		273BE98120E8838F00DE9A96 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BE98020E8838F00DE9A96 /* PlayerView.swift */; };
 		275B718320DBA2CB00C1FE36 /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B718220DBA2CB00C1FE36 /* TrackModel.swift */; };
 		275B718520DBA2EF00C1FE36 /* GenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B718420DBA2EF00C1FE36 /* GenreModel.swift */; };
 		276AC5B420E3207000431A23 /* RelatedTrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276AC5B220E3207000431A23 /* RelatedTrackTableViewCell.swift */; };
@@ -47,8 +47,6 @@
 		2709874620DA5FBE00AB47D6 /* HomeSongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSongCell.swift; sourceTree = "<group>"; };
 		2709874720DA5FBE00AB47D6 /* HomeSongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeSongCell.xib; sourceTree = "<group>"; };
 		271E3A8020E21FFE00831DF7 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
-		271E3A8220E227A900831DF7 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
-		271E3A8320E227A900831DF7 /* PlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerTableViewCell.xib; sourceTree = "<group>"; };
 		272BF69920DC97140028AD29 /* TrackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackInfo.swift; sourceTree = "<group>"; };
 		272BF69B20DCA7B80028AD29 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		272BF6AA20DCD46F0028AD29 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
@@ -61,6 +59,8 @@
 		272BF6B820DCEE1C0028AD29 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		272BF6BA20DCEF390028AD29 /* GenreRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreRequest.swift; sourceTree = "<group>"; };
 		272BF6BC20DCF45E0028AD29 /* GenreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreRepository.swift; sourceTree = "<group>"; };
+		273BE97E20E8837B00DE9A96 /* PlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
+		273BE98020E8838F00DE9A96 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		275B718220DBA2CB00C1FE36 /* TrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModel.swift; sourceTree = "<group>"; };
 		275B718420DBA2EF00C1FE36 /* GenreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreModel.swift; sourceTree = "<group>"; };
 		276AC5B220E3207000431A23 /* RelatedTrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedTrackTableViewCell.swift; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 		2709873E20DA5D3A00AB47D6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				2709874120DA5D5F00AB47D6 /* View */,
+				2709874120DA5D5F00AB47D6 /* ViewCells */,
 				2709873720DA3A5700AB47D6 /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -124,7 +124,7 @@
 			path = Download;
 			sourceTree = "<group>";
 		};
-		2709874120DA5D5F00AB47D6 /* View */ = {
+		2709874120DA5D5F00AB47D6 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				2709874220DA5F8000AB47D6 /* HomeGenreCell.swift */,
@@ -132,7 +132,7 @@
 				2709874620DA5FBE00AB47D6 /* HomeSongCell.swift */,
 				2709874720DA5FBE00AB47D6 /* HomeSongCell.xib */,
 			);
-			path = View;
+			path = ViewCells;
 			sourceTree = "<group>";
 		};
 		272BF69F20DCD0E40028AD29 /* Source */ = {
@@ -234,10 +234,10 @@
 			isa = PBXGroup;
 			children = (
 				271E3A8020E21FFE00831DF7 /* PlayerViewController.swift */,
-				271E3A8220E227A900831DF7 /* PlayerTableViewCell.swift */,
-				271E3A8320E227A900831DF7 /* PlayerTableViewCell.xib */,
 				276AC5B220E3207000431A23 /* RelatedTrackTableViewCell.swift */,
 				276AC5B320E3207000431A23 /* RelatedTrackTableViewCell.xib */,
+				273BE97E20E8837B00DE9A96 /* PlayerView.xib */,
+				273BE98020E8838F00DE9A96 /* PlayerView.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -351,6 +351,11 @@
 					276BCD4620D9F21E007E3AD7 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -377,13 +382,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				271E3A8520E227A900831DF7 /* PlayerTableViewCell.xib in Resources */,
 				2709874520DA5F8000AB47D6 /* HomeGenreCell.xib in Resources */,
 				276BCD5520D9F21E007E3AD7 /* LaunchScreen.storyboard in Resources */,
 				276BCD5220D9F21E007E3AD7 /* Assets.xcassets in Resources */,
 				2709874920DA5FBE00AB47D6 /* HomeSongCell.xib in Resources */,
 				276BCD5020D9F21E007E3AD7 /* Main.storyboard in Resources */,
 				276AC5B520E3207000431A23 /* RelatedTrackTableViewCell.xib in Resources */,
+				273BE97F20E8837B00DE9A96 /* PlayerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,13 +455,13 @@
 				276BCD4B20D9F21E007E3AD7 /* AppDelegate.swift in Sources */,
 				276AC5B420E3207000431A23 /* RelatedTrackTableViewCell.swift in Sources */,
 				272BF6BD20DCF45E0028AD29 /* GenreRepository.swift in Sources */,
+				273BE98120E8838F00DE9A96 /* PlayerView.swift in Sources */,
 				2709874820DA5FBE00AB47D6 /* HomeSongCell.swift in Sources */,
 				2709874420DA5F8000AB47D6 /* HomeGenreCell.swift in Sources */,
 				272BF6AF20DCDA170028AD29 /* BaseResult.swift in Sources */,
 				272BF6AD20DCD4EA0028AD29 /* ErrorRespone.swift in Sources */,
 				2709873820DA3A5700AB47D6 /* HomeViewController.swift in Sources */,
 				27BF0D5620E0CD62003AD92F /* Genre.swift in Sources */,
-				271E3A8420E227A900831DF7 /* PlayerTableViewCell.swift in Sources */,
 				275B718520DBA2EF00C1FE36 /* GenreModel.swift in Sources */,
 				272BF6B720DCECC30028AD29 /* URLs.swift in Sources */,
 				272BF6B320DCDD1A0028AD29 /* BaseRequest.swift in Sources */,

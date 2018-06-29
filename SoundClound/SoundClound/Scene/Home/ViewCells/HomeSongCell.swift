@@ -23,8 +23,6 @@ final class HomeSongCell: UICollectionViewCell, NibReusable {
         if let image = track.trackModel?.image {
             let url = URL(string: image)
             self.songImage.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "SongImage2"))
-        } else {
-            self.songImage.image = #imageLiteral(resourceName: "SongImage2")
         }
     }
     
