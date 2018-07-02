@@ -9,9 +9,11 @@
 import UIKit
 import Reusable
 import Alamofire
-
+import AVFoundation
 
 final class HomeViewController: UIViewController {
+    
+    var audioPlayer = AVAudioPlayer()
     
     private struct Constant {
         static let tableViewCellHeight = 310
@@ -133,11 +135,15 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyBroad = UIStoryboard(name: "Main", bundle: nil)
-        guard let playerView = storyBroad.instantiateViewController(withIdentifier: "Player") as? PlayerViewController else { return }
+        guard let playerViewController = storyBroad.instantiateViewController(withIdentifier: "Player") as? PlayerViewController else { return }
+        
         let row = collectionView.tag
         let genre = genres[row]
         let track = genre.tracks[indexPath.row]
-        playerView.track = track
-        self.navigationController?.pushViewController(playerView, animated: true)
+        let relatedGenre = genre
+        playerViewController.genre = relatedGenre
+        playerViewController.track = track
+        playerViewController.currentIndexPath = indexPath
+        self.navigationController?.pushViewController(playerViewController, animated: true)
     }
 }
