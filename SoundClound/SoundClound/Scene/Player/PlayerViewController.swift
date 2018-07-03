@@ -36,6 +36,9 @@ final class PlayerViewController: UIViewController {
         
         nextTrackAction()
         previousTrackAction()
+        nextShuffleTrackAction()
+        playBackAction()
+        loopAllAction()
         setTableView()
         
         genreRepository = GenreRepositoryImpl(api: APIService.share)
@@ -49,14 +52,63 @@ final class PlayerViewController: UIViewController {
         tableView.delegate = self
     }
     
+    private func loopAllAction() {
+        playerView.loopAll = { [weak playerView, weak self] in
+            guard let `self` = self else { return }
+            if let currentIndexPath = self.currentIndexPath,
+                let genre = self.genre {
+                let trackCount = genre.tracks.count
+                if currentIndexPath.row == trackCount - 1 {
+                    let track = genre.tracks[0]
+                    self.currentIndexPath = IndexPath(row: 0, section: 0)
+                    playerView?.track = track
+                }
+            }
+        }
+    }
+    
+    private func playBackAction() {
+        playerView.playBack = { [weak playerView, weak self] in
+            guard let `self` = self else { return }
+            if let currentIndexPath = self.currentIndexPath,
+                let genre = self.genre {
+                let trackCount = genre.tracks.count
+                if currentIndexPath.row < trackCount - 1 {
+                    let track = genre.tracks[currentIndexPath.row]
+                    playerView?.track = track
+                }
+            }
+        }
+    }
+    
+    private func nextShuffleTrackAction() {
+        playerView.nextShuffleTrack = { [weak playerView, weak self] in
+            guard let `self` = self else { return }
+            var nextIndexPath = IndexPath()
+            if let currentIndexPath = self.currentIndexPath,
+                let genre = self.genre {
+                let trackCount = genre.tracks.count
+                if currentIndexPath.row < trackCount - 1 {
+                    repeat {
+                        nextIndexPath = IndexPath(row: Int(arc4random_uniform(UInt32(trackCount - 1))), section: 0)
+                    } while nextIndexPath.row == currentIndexPath.row
+                    self.currentIndexPath = nextIndexPath
+                    let track = genre.tracks[nextIndexPath.row]
+                    playerView?.track = track
+                }
+            }
+        }
+    }
+    
     private func nextTrackAction() {
         playerView.nextTrack = { [weak playerView, weak self] in
-            if let currentIndexPath = self?.currentIndexPath,
-                let genre = self?.genre {
+            guard let `self` = self else { return }
+            if let currentIndexPath = self.currentIndexPath,
+                let genre = self.genre {
                 let trackCount = genre.tracks.count
                 if currentIndexPath.row < trackCount - 1 {
                     let nextIndexPath = IndexPath(row: currentIndexPath.row + 1, section: 0)
-                    self?.currentIndexPath = nextIndexPath
+                    self.currentIndexPath = nextIndexPath
                     let track = genre.tracks[nextIndexPath.row]
                     playerView?.track = track
                 }
@@ -66,12 +118,13 @@ final class PlayerViewController: UIViewController {
     
     private func previousTrackAction() {
         playerView.previousTrack = { [weak playerView, weak self] in
-            if let currentIndexPath = self?.currentIndexPath,
-                let genre = self?.genre {
+            guard let `self` = self else { return }
+            if let currentIndexPath = self.currentIndexPath,
+                let genre = self.genre {
                 let trackCount = genre.tracks.count
                 if currentIndexPath.row > 0 {
                     let previousIndexPath = IndexPath(row: currentIndexPath.row - 1, section: 0)
-                    self?.currentIndexPath = previousIndexPath
+                    self.currentIndexPath = previousIndexPath
                     let track = genre.tracks[previousIndexPath.row]
                     playerView?.track = track
                 }

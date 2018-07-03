@@ -19,9 +19,20 @@ class PlayerView: UIView, NibOwnerLoadable {
     @IBOutlet private weak var trackMinDuration: UILabel!
     @IBOutlet private weak var trackMaxDuration: UILabel!
     @IBOutlet private weak var pauseAndPlayButtonImage: UIButton!
+    @IBOutlet private weak var shuffleControlImage: UIButton!
+    @IBOutlet private weak var loopControlImage: UIButton!
     
+    fileprivate enum LoopStatus: Int {
+        case nonLoop 
+        case allLoop
+        case oneLoop
+    }
+
     fileprivate var player: AVPlayer?
     fileprivate var playerItem: AVPlayerItem?
+    fileprivate var isShuffling = false
+    fileprivate var loopStatus: LoopStatus = .nonLoop
+    fileprivate let apiKey = APIKey()
     var track: TrackInfo? {
         didSet {
             guard let track = track else {
@@ -40,6 +51,9 @@ class PlayerView: UIView, NibOwnerLoadable {
     
     var nextTrack: (() -> Void)?
     var previousTrack: (() -> Void)?
+    var nextShuffleTrack: (() -> Void)?
+    var playBack: (() -> Void)?
+    var loopAll: (() -> Void)?
     
     @IBAction private func previousTrackAction(_ sender: Any) {
         previousTrack?()
@@ -56,12 +70,42 @@ class PlayerView: UIView, NibOwnerLoadable {
     }
     
     @IBAction private func nextTrackAction(_ sender: Any) {
-        nextTrack?()
+        if self.isShuffling == true {
+            nextShuffleTrack?()
+        } else {
+            nextTrack?()
+            if self.loopStatus == .allLoop {
+                loopAll?()
+            }
+        }
     }
     
+    @IBAction func shuffleControlAction(_ sender: Any) {
+        if self.isShuffling == true {
+            self.shuffleControlImage.setImage(#imageLiteral(resourceName: "ShuffleButton"), for: .normal)
+            self.isShuffling = false
+        } else {
+            self.shuffleControlImage.setImage(#imageLiteral(resourceName: "ShuffleButtonSelected"), for: .normal)
+            self.isShuffling = true
+        }
+    }
+
+    @IBAction func loopControlAction(_ sender: Any) {
+        switch loopStatus {
+        case .nonLoop:
+            self.loopControlImage.setImage(#imageLiteral(resourceName: "LoopButtonLoopAll"), for: .normal)
+            self.loopStatus = .allLoop
+        case .allLoop:
+            self.loopControlImage.setImage(#imageLiteral(resourceName: "LoopButtonLoopOne"), for: .normal)
+            self.loopStatus = .oneLoop
+        default:
+            self.loopControlImage.setImage(#imageLiteral(resourceName: "LoopButtonNonLoop"), for: .normal)
+            self.loopStatus = .nonLoop
+        }
+    }
+
     private func playTrack(track: TrackInfo?) {
-        guard let id = track?.trackModel?.id else { return }
-        guard let url = URL (string: "https://api.soundcloud.com/tracks/\(id)/stream?client_id=a7Ucuq0KY8Ksn8WzBG6wj4x6pcId6BpU") else { return }
+        guard let id = track?.trackModel?.id ,let url = URL (string: "https://api.soundcloud.com/tracks/\(id)/stream?client_id=\(apiKey.clientID)") else { return }
         playerItem = AVPlayerItem(url: url)
         player = AVPlayer(playerItem: playerItem)
         let playerLayer = AVPlayerLayer(player: player)
@@ -76,11 +120,27 @@ class PlayerView: UIView, NibOwnerLoadable {
         self.layer.addSublayer(playerLayer)
         player?.play()
         self.pauseAndPlayButtonImage.setImage(#imageLiteral(resourceName: "PauseButton"), for: .normal)
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(note:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
+    }
+    
+    @objc func playerDidFinishPlaying(note: NSNotification) {
+        print("Finished")
+        if self.loopStatus == .oneLoop {
+            playBack?()
+        } else {
+            if self.isShuffling == true {
+                nextShuffleTrack?()
+            } else {
+                nextTrack?()
+                if self.loopStatus == .allLoop {
+                    loopAll?()
+                }
+            }
+        }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         loadNibContent()
     }
-    
 }

@@ -14,7 +14,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerView" customModule="SoundClound" customModuleProvider="target">
             <connections>
+                <outlet property="loopControlImage" destination="6rP-8T-eES" id="gJp-Sc-X6i"/>
                 <outlet property="pauseAndPlayButtonImage" destination="LGU-4m-CRG" id="z0X-3R-2kI"/>
+                <outlet property="shuffleControlImage" destination="w38-eo-nib" id="Lh5-Af-nbL"/>
                 <outlet property="trackBackgroundImage" destination="VZj-HN-kMh" id="4oR-9D-Px6"/>
                 <outlet property="trackDescription" destination="eNn-FU-ZjI" id="8iH-jT-CJH"/>
                 <outlet property="trackImage" destination="o6M-AN-Ejt" id="j2L-tD-5jZ"/>
@@ -48,7 +50,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMs-sR-Ivy">
-                            <rect key="frame" x="0.0" y="25.5" width="525" height="64.5"/>
+                            <rect key="frame" x="0.0" y="25" width="525" height="64.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGU-4m-CRG">
                                     <rect key="frame" x="246" y="16.5" width="32" height="32"/>
@@ -71,22 +73,44 @@
                                         <action selector="previousTrackAction:" destination="-1" eventType="touchUpInside" id="p5d-BY-B1A"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rP-8T-eES">
+                                    <rect key="frame" x="480.5" y="16" width="32.5" height="32"/>
+                                    <state key="normal" title="Button" image="LoopButtonNonLoop"/>
+                                    <connections>
+                                        <action selector="loopControlAction:" destination="-1" eventType="touchUpInside" id="pTa-7f-l4l"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w38-eo-nib">
+                                    <rect key="frame" x="12" y="16" width="32" height="32"/>
+                                    <state key="normal" image="ShuffleButton"/>
+                                    <connections>
+                                        <action selector="shuffleControlAction:" destination="-1" eventType="touchUpInside" id="WhZ-gn-dAC"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="6rP-8T-eES" secondAttribute="trailing" constant="12" id="2Fr-Ji-oSg"/>
+                                <constraint firstItem="w38-eo-nib" firstAttribute="leading" secondItem="WMs-sR-Ivy" secondAttribute="leading" constant="12" id="4fw-Gk-J4I"/>
                                 <constraint firstItem="Gzd-gg-XH5" firstAttribute="centerX" secondItem="WMs-sR-Ivy" secondAttribute="centerX" multiplier="7:5" id="7Rk-KS-1eS"/>
                                 <constraint firstItem="LGU-4m-CRG" firstAttribute="centerY" secondItem="WMs-sR-Ivy" secondAttribute="centerY" id="8J6-xa-3vj"/>
                                 <constraint firstItem="PXG-NE-evj" firstAttribute="centerY" secondItem="WMs-sR-Ivy" secondAttribute="centerY" id="BW5-2A-tsF"/>
+                                <constraint firstItem="w38-eo-nib" firstAttribute="width" secondItem="PXG-NE-evj" secondAttribute="width" id="Dar-ER-nr7"/>
                                 <constraint firstItem="LGU-4m-CRG" firstAttribute="centerX" secondItem="WMs-sR-Ivy" secondAttribute="centerX" id="EaQ-3t-of3"/>
                                 <constraint firstItem="PXG-NE-evj" firstAttribute="height" secondItem="WMs-sR-Ivy" secondAttribute="height" multiplier="1:2" id="Er6-9x-u2T"/>
+                                <constraint firstItem="6rP-8T-eES" firstAttribute="height" secondItem="Gzd-gg-XH5" secondAttribute="height" id="JCe-vg-zLc"/>
                                 <constraint firstItem="LGU-4m-CRG" firstAttribute="height" secondItem="WMs-sR-Ivy" secondAttribute="height" multiplier="1:2" id="Msh-z6-K35"/>
+                                <constraint firstItem="6rP-8T-eES" firstAttribute="centerY" secondItem="Gzd-gg-XH5" secondAttribute="centerY" id="Qao-fL-ot8"/>
                                 <constraint firstItem="PXG-NE-evj" firstAttribute="centerX" secondItem="WMs-sR-Ivy" secondAttribute="centerX" multiplier="3:5" id="RHW-oh-3dY"/>
                                 <constraint firstItem="LGU-4m-CRG" firstAttribute="width" secondItem="WMs-sR-Ivy" secondAttribute="height" multiplier="1:2" id="SHt-rV-hhB"/>
+                                <constraint firstItem="6rP-8T-eES" firstAttribute="width" secondItem="Gzd-gg-XH5" secondAttribute="width" id="ScC-SW-CCd"/>
                                 <constraint firstItem="Gzd-gg-XH5" firstAttribute="centerY" secondItem="WMs-sR-Ivy" secondAttribute="centerY" id="Zrv-yt-qrh"/>
+                                <constraint firstItem="w38-eo-nib" firstAttribute="height" secondItem="PXG-NE-evj" secondAttribute="height" id="cDd-MZ-aDe"/>
                                 <constraint firstAttribute="height" constant="64.5" id="cTB-ZC-ziD"/>
                                 <constraint firstItem="Gzd-gg-XH5" firstAttribute="height" secondItem="WMs-sR-Ivy" secondAttribute="height" multiplier="1:2" id="hJo-Dk-yFe"/>
                                 <constraint firstItem="PXG-NE-evj" firstAttribute="width" secondItem="WMs-sR-Ivy" secondAttribute="height" multiplier="1:2" id="qg3-PB-9VV"/>
                                 <constraint firstItem="Gzd-gg-XH5" firstAttribute="width" secondItem="WMs-sR-Ivy" secondAttribute="height" multiplier="1:2" id="vUX-Ep-jfg"/>
+                                <constraint firstItem="w38-eo-nib" firstAttribute="centerY" secondItem="PXG-NE-evj" secondAttribute="centerY" id="xJk-De-jmW"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -174,13 +198,15 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="-7.5" y="-70.5"/>
+            <point key="canvasLocation" x="-336.5" y="-75.5"/>
         </view>
     </objects>
     <resources>
+        <image name="LoopButtonNonLoop" width="50" height="50"/>
         <image name="NextButton" width="52" height="52"/>
         <image name="PauseButton" width="52" height="52"/>
         <image name="PreviousButton" width="52" height="52"/>
+        <image name="ShuffleButton" width="26" height="26"/>
         <image name="SongImage" width="246" height="246"/>
         <image name="SongImage2" width="180" height="180"/>
     </resources>
