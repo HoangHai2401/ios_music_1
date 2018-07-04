@@ -26,33 +26,60 @@
             </objects>
             <point key="canvasLocation" x="87" y="1757"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="cYl-3O-AbG">
             <objects>
-                <viewController id="ukx-mZ-VHp" sceneMemberID="viewController">
+                <viewController id="ukx-mZ-VHp" customClass="SearchViewController" customModule="SoundClound" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rqI-UE-K4Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CPl-SO-ecP">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="514"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cky-gi-fbp">
+                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H93-bl-mJg">
+                                        <rect key="frame" x="5" y="5" width="365" height="30"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="79T-xH-GPZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="H93-bl-mJg" secondAttribute="trailing" constant="5" id="IR3-MH-65X"/>
+                                    <constraint firstItem="H93-bl-mJg" firstAttribute="top" secondItem="cky-gi-fbp" secondAttribute="top" constant="5" id="Iyi-cy-Cjl"/>
+                                    <constraint firstAttribute="bottom" secondItem="H93-bl-mJg" secondAttribute="bottom" constant="5" id="g3w-v8-T0g"/>
+                                    <constraint firstItem="H93-bl-mJg" firstAttribute="leading" secondItem="cky-gi-fbp" secondAttribute="leading" constant="5" id="nb6-sk-d19"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CPl-SO-ecP" firstAttribute="top" secondItem="gwa-Xs-26Y" secondAttribute="top" id="Saf-rM-BCu"/>
-                            <constraint firstItem="gwa-Xs-26Y" firstAttribute="trailing" secondItem="CPl-SO-ecP" secondAttribute="trailing" id="TPE-Zs-RBc"/>
-                            <constraint firstItem="gwa-Xs-26Y" firstAttribute="bottom" secondItem="CPl-SO-ecP" secondAttribute="bottom" id="ZHE-eb-Wnh"/>
-                            <constraint firstItem="CPl-SO-ecP" firstAttribute="leading" secondItem="gwa-Xs-26Y" secondAttribute="leading" id="wY2-dX-FTU"/>
+                            <constraint firstItem="CPl-SO-ecP" firstAttribute="bottom" secondItem="gwa-Xs-26Y" secondAttribute="bottom" id="09B-ZO-VJt"/>
+                            <constraint firstItem="CPl-SO-ecP" firstAttribute="leading" secondItem="gwa-Xs-26Y" secondAttribute="leading" id="27j-Xj-fL1"/>
+                            <constraint firstItem="cky-gi-fbp" firstAttribute="leading" secondItem="gwa-Xs-26Y" secondAttribute="leading" id="41G-cD-fIx"/>
+                            <constraint firstItem="cky-gi-fbp" firstAttribute="trailing" secondItem="gwa-Xs-26Y" secondAttribute="trailing" id="Gzk-Cw-Z2v"/>
+                            <constraint firstItem="cky-gi-fbp" firstAttribute="top" secondItem="gwa-Xs-26Y" secondAttribute="top" id="NBn-BO-Uwn"/>
+                            <constraint firstItem="CPl-SO-ecP" firstAttribute="trailing" secondItem="gwa-Xs-26Y" secondAttribute="trailing" id="bUG-EN-loC"/>
+                            <constraint firstItem="CPl-SO-ecP" firstAttribute="top" secondItem="cky-gi-fbp" secondAttribute="bottom" id="pgV-no-mVw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gwa-Xs-26Y"/>
                     </view>
                     <navigationItem key="navigationItem" id="BhG-4e-77M"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="H93-bl-mJg" id="fS6-g1-Xd4"/>
+                        <outlet property="tableView" destination="CPl-SO-ecP" id="okN-Gc-lNU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uh7-0O-sqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130" y="968"/>
+            <point key="canvasLocation" x="128.80000000000001" y="967.4662668665668"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="mPF-Vi-91J">
