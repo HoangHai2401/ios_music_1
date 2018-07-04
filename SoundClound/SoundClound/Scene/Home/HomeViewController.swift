@@ -13,12 +13,13 @@ import AVFoundation
 
 final class HomeViewController: UIViewController {
     
-    var audioPlayer = AVAudioPlayer()
+    //var audioPlayer = AVAudioPlayer()
     
     private struct Constant {
         static let tableViewCellHeight = 310
         static let collectionViewCellWidth = 120
         static let collectionViewCellHeight = 190
+        static let limit = 40
     }
     
     fileprivate var storedOffsets = [Int: CGFloat]()
@@ -36,7 +37,7 @@ final class HomeViewController: UIViewController {
         
         genreRepository = GenreRepositoryImpl(api: APIService.share)
         genres = [
-            GenreModel(type: .allMusic, kind: .top),
+            GenreModel(type: .allMusic, kind: .trending),
             GenreModel(type: .allAudio, kind: .trending),
             GenreModel(type: .alternativeRock, kind: .trending),
             GenreModel(type: .ambient, kind: .trending),
@@ -53,7 +54,7 @@ final class HomeViewController: UIViewController {
     }
     
     private func getTracks(for genre: GenreModel) {
-        genreRepository.getGenre(kind: genre.kind.rawValue, genre: genre.type.query, limit: 15, linkedPartitioning: 1) { [weak self] (result) in
+        genreRepository.getGenre(kind: genre.kind.rawValue, genre: genre.type.query, limit: Constant.limit, linkedPartitioning: 1) { [weak self] (result) in
             switch result {
             case .success(let value):
                 genre.tracks = value.tracks
@@ -141,9 +142,13 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         let genre = genres[row]
         let track = genre.tracks[indexPath.row]
         let relatedGenre = genre
+        OfflineChecker.isOffline = false
         playerViewController.genre = relatedGenre
         playerViewController.track = track
         playerViewController.currentIndexPath = indexPath
+        playerViewController.trackList?.removeAll()
+        playerViewController.trackList = genre.tracks
+        playerViewController.tabBarSelectedIndex = self.tabBarController?.selectedIndex
         self.navigationController?.pushViewController(playerViewController, animated: true)
     }
 }

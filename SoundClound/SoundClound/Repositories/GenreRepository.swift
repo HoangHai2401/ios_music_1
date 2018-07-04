@@ -31,7 +31,6 @@ class GenreRepositoryImpl: GenreRepository {
                 return
             }
             completion(.success(object))
-            
         }
     }
 }

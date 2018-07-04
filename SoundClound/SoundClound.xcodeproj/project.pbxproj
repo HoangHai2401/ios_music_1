@@ -29,12 +29,25 @@
 		273BE98120E8838F00DE9A96 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BE98020E8838F00DE9A96 /* PlayerView.swift */; };
 		275B718320DBA2CB00C1FE36 /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B718220DBA2CB00C1FE36 /* TrackModel.swift */; };
 		275B718520DBA2EF00C1FE36 /* GenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B718420DBA2EF00C1FE36 /* GenreModel.swift */; };
+		2764C60520F241320081E888 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2764C60420F241320081E888 /* SearchModel.swift */; };
+		2764C60720F244190081E888 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2764C60620F244190081E888 /* SearchRequest.swift */; };
+		2764C60920F2467A0081E888 /* SearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2764C60820F2467A0081E888 /* SearchRepository.swift */; };
+		2764C60B20F29C5D0081E888 /* OfflineChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2764C60A20F29C5D0081E888 /* OfflineChecker.swift */; };
 		276AC5B420E3207000431A23 /* RelatedTrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276AC5B220E3207000431A23 /* RelatedTrackTableViewCell.swift */; };
 		276AC5B520E3207000431A23 /* RelatedTrackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276AC5B320E3207000431A23 /* RelatedTrackTableViewCell.xib */; };
 		276BCD4B20D9F21E007E3AD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BCD4A20D9F21E007E3AD7 /* AppDelegate.swift */; };
 		276BCD5020D9F21E007E3AD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 276BCD4E20D9F21E007E3AD7 /* Main.storyboard */; };
 		276BCD5220D9F21E007E3AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276BCD5120D9F21E007E3AD7 /* Assets.xcassets */; };
 		276BCD5520D9F21E007E3AD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 276BCD5320D9F21E007E3AD7 /* LaunchScreen.storyboard */; };
+		276DD3A420EDAEFF0073CDC2 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DD3A320EDAEFF0073CDC2 /* DownloadViewController.swift */; };
+		276DD3A720EDB1040073CDC2 /* DownloadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DD3A520EDB1040073CDC2 /* DownloadTableViewCell.swift */; };
+		276DD3A820EDB1040073CDC2 /* DownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276DD3A620EDB1040073CDC2 /* DownloadTableViewCell.xib */; };
+		276DD3AB20EDC47E0073CDC2 /* Tracks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 276DD3A920EDC47E0073CDC2 /* Tracks.xcdatamodeld */; };
+		276DD3B120EDD7F40073CDC2 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DD3B020EDD7F40073CDC2 /* DatabaseManager.swift */; };
+		276DD3B320EE160F0073CDC2 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DD3B220EE160F0073CDC2 /* DownloadManager.swift */; };
+		278A7AE620ECC8EC004B8E05 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278A7AE520ECC8EC004B8E05 /* SearchViewController.swift */; };
+		278A7AE920ECCDD0004B8E05 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278A7AE720ECCDD0004B8E05 /* SearchTableViewCell.swift */; };
+		278A7AEA20ECCDD0004B8E05 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278A7AE820ECCDD0004B8E05 /* SearchTableViewCell.xib */; };
 		27BF0D5620E0CD62003AD92F /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BF0D5520E0CD62003AD92F /* Genre.swift */; };
 		27BF0D5920E1029A003AD92F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BF0D5820E1029A003AD92F /* UIViewController+.swift */; };
 		FFE6E990253A605D3267A911 /* Pods_SoundClound.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9269992E2FCEC7B40C48FBEC /* Pods_SoundClound.framework */; };
@@ -63,6 +76,10 @@
 		273BE98020E8838F00DE9A96 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		275B718220DBA2CB00C1FE36 /* TrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModel.swift; sourceTree = "<group>"; };
 		275B718420DBA2EF00C1FE36 /* GenreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreModel.swift; sourceTree = "<group>"; };
+		2764C60420F241320081E888 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		2764C60620F244190081E888 /* SearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
+		2764C60820F2467A0081E888 /* SearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepository.swift; sourceTree = "<group>"; };
+		2764C60A20F29C5D0081E888 /* OfflineChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineChecker.swift; sourceTree = "<group>"; };
 		276AC5B220E3207000431A23 /* RelatedTrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedTrackTableViewCell.swift; sourceTree = "<group>"; };
 		276AC5B320E3207000431A23 /* RelatedTrackTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelatedTrackTableViewCell.xib; sourceTree = "<group>"; };
 		276BCD4720D9F21E007E3AD7 /* SoundClound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundClound.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +88,15 @@
 		276BCD5120D9F21E007E3AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		276BCD5420D9F21E007E3AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		276BCD5620D9F21E007E3AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		276DD3A320EDAEFF0073CDC2 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
+		276DD3A520EDB1040073CDC2 /* DownloadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableViewCell.swift; sourceTree = "<group>"; };
+		276DD3A620EDB1040073CDC2 /* DownloadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadTableViewCell.xib; sourceTree = "<group>"; };
+		276DD3AA20EDC47E0073CDC2 /* Tracks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tracks.xcdatamodel; sourceTree = "<group>"; };
+		276DD3B020EDD7F40073CDC2 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		276DD3B220EE160F0073CDC2 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		278A7AE520ECC8EC004B8E05 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		278A7AE720ECCDD0004B8E05 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		278A7AE820ECCDD0004B8E05 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		27BF0D5520E0CD62003AD92F /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		27BF0D5820E1029A003AD92F /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		6F6A169F11C74D2ECBEDCC2F /* Pods-SoundClound.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundClound.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundClound/Pods-SoundClound.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +139,9 @@
 		2709873F20DA5D3F00AB47D6 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				278A7AE520ECC8EC004B8E05 /* SearchViewController.swift */,
+				278A7AE720ECCDD0004B8E05 /* SearchTableViewCell.swift */,
+				278A7AE820ECCDD0004B8E05 /* SearchTableViewCell.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -120,6 +149,9 @@
 		2709874020DA5D4700AB47D6 /* Download */ = {
 			isa = PBXGroup;
 			children = (
+				276DD3A320EDAEFF0073CDC2 /* DownloadViewController.swift */,
+				276DD3A520EDB1040073CDC2 /* DownloadTableViewCell.swift */,
+				276DD3A620EDB1040073CDC2 /* DownloadTableViewCell.xib */,
 			);
 			path = Download;
 			sourceTree = "<group>";
@@ -202,6 +234,7 @@
 			children = (
 				272BF6B220DCDD1A0028AD29 /* BaseRequest.swift */,
 				272BF6BA20DCEF390028AD29 /* GenreRequest.swift */,
+				2764C60620F244190081E888 /* SearchRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -226,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				272BF6BC20DCF45E0028AD29 /* GenreRepository.swift */,
+				2764C60820F2467A0081E888 /* SearchRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -248,6 +282,7 @@
 				272BF69B20DCA7B80028AD29 /* BaseModel.swift */,
 				27BF0D5520E0CD62003AD92F /* Genre.swift */,
 				275B718420DBA2EF00C1FE36 /* GenreModel.swift */,
+				2764C60420F241320081E888 /* SearchModel.swift */,
 				272BF69920DC97140028AD29 /* TrackInfo.swift */,
 				275B718220DBA2CB00C1FE36 /* TrackModel.swift */,
 			);
@@ -275,11 +310,14 @@
 		276BCD4920D9F21E007E3AD7 /* SoundClound */ = {
 			isa = PBXGroup;
 			children = (
+				276DD3AF20EDD7B40073CDC2 /* Utilities */,
 				27BF0D5720E1027E003AD92F /* Extensions */,
 				272BF6A820DCD3A30028AD29 /* Data */,
 				272BF6A920DCD3DB0028AD29 /* Repositories */,
 				2709873D20DA5D2E00AB47D6 /* Scene */,
 				276BCD4A20D9F21E007E3AD7 /* AppDelegate.swift */,
+				276DD3A920EDC47E0073CDC2 /* Tracks.xcdatamodeld */,
+				2764C60A20F29C5D0081E888 /* OfflineChecker.swift */,
 				272BF6B620DCECC30028AD29 /* URLs.swift */,
 				272BF6B820DCEE1C0028AD29 /* APIKey.swift */,
 				276BCD4820D9F21E007E3AD7 /* Products */,
@@ -289,6 +327,16 @@
 				276BCD5620D9F21E007E3AD7 /* Info.plist */,
 			);
 			path = SoundClound;
+			sourceTree = "<group>";
+		};
+		276DD3AF20EDD7B40073CDC2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				276DD3B020EDD7F40073CDC2 /* DatabaseManager.swift */,
+				276DD3B220EE160F0073CDC2 /* DownloadManager.swift */,
+			);
+			name = Utilities;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		27BF0D5720E1027E003AD92F /* Extensions */ = {
@@ -383,12 +431,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2709874520DA5F8000AB47D6 /* HomeGenreCell.xib in Resources */,
+				278A7AEA20ECCDD0004B8E05 /* SearchTableViewCell.xib in Resources */,
 				276BCD5520D9F21E007E3AD7 /* LaunchScreen.storyboard in Resources */,
 				276BCD5220D9F21E007E3AD7 /* Assets.xcassets in Resources */,
 				2709874920DA5FBE00AB47D6 /* HomeSongCell.xib in Resources */,
 				276BCD5020D9F21E007E3AD7 /* Main.storyboard in Resources */,
 				276AC5B520E3207000431A23 /* RelatedTrackTableViewCell.xib in Resources */,
 				273BE97F20E8837B00DE9A96 /* PlayerView.xib in Resources */,
+				276DD3A820EDB1040073CDC2 /* DownloadTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,25 +499,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				272BF69C20DCA7B80028AD29 /* BaseModel.swift in Sources */,
+				2764C60720F244190081E888 /* SearchRequest.swift in Sources */,
+				276DD3B320EE160F0073CDC2 /* DownloadManager.swift in Sources */,
 				272BF6B520DCE0130028AD29 /* APIService.swift in Sources */,
 				27BF0D5920E1029A003AD92F /* UIViewController+.swift in Sources */,
 				272BF69A20DC97140028AD29 /* TrackInfo.swift in Sources */,
 				276BCD4B20D9F21E007E3AD7 /* AppDelegate.swift in Sources */,
 				276AC5B420E3207000431A23 /* RelatedTrackTableViewCell.swift in Sources */,
 				272BF6BD20DCF45E0028AD29 /* GenreRepository.swift in Sources */,
+				276DD3AB20EDC47E0073CDC2 /* Tracks.xcdatamodeld in Sources */,
+				276DD3B120EDD7F40073CDC2 /* DatabaseManager.swift in Sources */,
 				273BE98120E8838F00DE9A96 /* PlayerView.swift in Sources */,
 				2709874820DA5FBE00AB47D6 /* HomeSongCell.swift in Sources */,
+				2764C60B20F29C5D0081E888 /* OfflineChecker.swift in Sources */,
 				2709874420DA5F8000AB47D6 /* HomeGenreCell.swift in Sources */,
 				272BF6AF20DCDA170028AD29 /* BaseResult.swift in Sources */,
 				272BF6AD20DCD4EA0028AD29 /* ErrorRespone.swift in Sources */,
 				2709873820DA3A5700AB47D6 /* HomeViewController.swift in Sources */,
 				27BF0D5620E0CD62003AD92F /* Genre.swift in Sources */,
+				2764C60920F2467A0081E888 /* SearchRepository.swift in Sources */,
 				275B718520DBA2EF00C1FE36 /* GenreModel.swift in Sources */,
+				2764C60520F241320081E888 /* SearchModel.swift in Sources */,
 				272BF6B720DCECC30028AD29 /* URLs.swift in Sources */,
 				272BF6B320DCDD1A0028AD29 /* BaseRequest.swift in Sources */,
 				272BF6BB20DCEF390028AD29 /* GenreRequest.swift in Sources */,
+				278A7AE620ECC8EC004B8E05 /* SearchViewController.swift in Sources */,
+				278A7AE920ECCDD0004B8E05 /* SearchTableViewCell.swift in Sources */,
+				276DD3A420EDAEFF0073CDC2 /* DownloadViewController.swift in Sources */,
 				275B718320DBA2CB00C1FE36 /* TrackModel.swift in Sources */,
 				271E3A8120E21FFE00831DF7 /* PlayerViewController.swift in Sources */,
+				276DD3A720EDB1040073CDC2 /* DownloadTableViewCell.swift in Sources */,
 				272BF6B120DCDA750028AD29 /* CustomRequestAdapter.swift in Sources */,
 				272BF6AB20DCD46F0028AD29 /* BaseError.swift in Sources */,
 				272BF6B920DCEE1C0028AD29 /* APIKey.swift in Sources */,
@@ -655,6 +716,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		276DD3A920EDC47E0073CDC2 /* Tracks.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				276DD3AA20EDC47E0073CDC2 /* Tracks.xcdatamodel */,
+			);
+			currentVersion = 276DD3AA20EDC47E0073CDC2 /* Tracks.xcdatamodel */;
+			path = Tracks.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 276BCD3F20D9F21E007E3AD7 /* Project object */;
 }
