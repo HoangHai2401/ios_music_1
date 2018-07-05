@@ -44,6 +44,17 @@ final class PlayerViewController: UIViewController {
         genreRepository = GenreRepositoryImpl(api: APIService.share)
         guard let genre = genre else { return }
         getTracks(for: genre)
+        
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "< Back",
+            style: UIBarButtonItemStyle.plain,
+            target: self, action: #selector(back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    @objc private func back(sender: UIBarButtonItem) {
+        self.playerView.timer?.invalidate()
+        navigationController?.popViewController(animated: true)
     }
     
     private func setTableView() {

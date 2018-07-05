@@ -22,7 +22,7 @@
                 <outlet property="trackImage" destination="o6M-AN-Ejt" id="j2L-tD-5jZ"/>
                 <outlet property="trackMaxDuration" destination="aEh-Da-dsq" id="3ue-S3-NRs"/>
                 <outlet property="trackMinDuration" destination="pZE-t9-pl7" id="D1H-7e-nq8"/>
-                <outlet property="trackProgress" destination="fPb-mx-Uss" id="AdX-WZ-zl2"/>
+                <outlet property="trackSlider" destination="N2N-zG-pj6" id="Qvi-F4-fkL"/>
                 <outlet property="trackTitle" destination="jJV-vV-h7j" id="rCK-Kg-Rtm"/>
             </connections>
         </placeholder>
@@ -34,22 +34,19 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68E-hi-GZg">
                     <rect key="frame" x="0.0" y="341" width="525" height="90"/>
                     <subviews>
-                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FIn-6A-I6a">
-                            <rect key="frame" x="131.5" y="10" width="262.5" height="2"/>
-                        </progressView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEh-Da-dsq">
                             <rect key="frame" x="432.5" y="0.0" width="87.5" height="22"/>
-                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="10"/>
-                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                            <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZE-t9-pl7">
                             <rect key="frame" x="5" y="0.0" width="87.5" height="22"/>
-                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="10"/>
-                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                            <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMs-sR-Ivy">
+                        <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMs-sR-Ivy">
                             <rect key="frame" x="0.0" y="25" width="525" height="64.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGU-4m-CRG">
@@ -113,23 +110,29 @@
                                 <constraint firstItem="w38-eo-nib" firstAttribute="centerY" secondItem="PXG-NE-evj" secondAttribute="centerY" id="xJk-De-jmW"/>
                             </constraints>
                         </view>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="-0.5" maxValue="1.5" translatesAutoresizingMaskIntoConstraints="NO" id="N2N-zG-pj6">
+                            <rect key="frame" x="129" y="5" width="266.5" height="31"/>
+                            <connections>
+                                <action selector="trackSliderAction:" destination="-1" eventType="valueChanged" id="ong-c4-bQU"/>
+                            </connections>
+                        </slider>
                     </subviews>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="N2N-zG-pj6" firstAttribute="top" secondItem="68E-hi-GZg" secondAttribute="top" constant="5" id="0Bm-nO-ksr"/>
                         <constraint firstItem="WMs-sR-Ivy" firstAttribute="leading" secondItem="68E-hi-GZg" secondAttribute="leading" id="8Bi-li-zoi"/>
+                        <constraint firstItem="N2N-zG-pj6" firstAttribute="width" secondItem="68E-hi-GZg" secondAttribute="width" multiplier="1/2" id="9Cl-sy-Asg"/>
                         <constraint firstItem="pZE-t9-pl7" firstAttribute="leading" secondItem="68E-hi-GZg" secondAttribute="leading" constant="5" id="9Rr-Wg-WJn"/>
                         <constraint firstItem="aEh-Da-dsq" firstAttribute="width" secondItem="68E-hi-GZg" secondAttribute="width" multiplier="1/6" id="9hJ-K0-ENS"/>
                         <constraint firstAttribute="trailing" secondItem="aEh-Da-dsq" secondAttribute="trailing" constant="5" id="EMq-f5-UGJ"/>
+                        <constraint firstItem="N2N-zG-pj6" firstAttribute="centerX" secondItem="68E-hi-GZg" secondAttribute="centerX" id="Fk2-NB-z9J"/>
                         <constraint firstAttribute="height" constant="90" id="ZJQ-OO-z83"/>
                         <constraint firstItem="pZE-t9-pl7" firstAttribute="top" secondItem="68E-hi-GZg" secondAttribute="top" id="Zam-bA-teG"/>
                         <constraint firstAttribute="bottom" secondItem="WMs-sR-Ivy" secondAttribute="bottom" id="dE4-c1-iKe"/>
-                        <constraint firstItem="FIn-6A-I6a" firstAttribute="centerY" secondItem="aEh-Da-dsq" secondAttribute="centerY" id="fPb-mx-Uss"/>
-                        <constraint firstItem="FIn-6A-I6a" firstAttribute="centerX" secondItem="68E-hi-GZg" secondAttribute="centerX" id="h8D-gr-rwE"/>
                         <constraint firstAttribute="trailing" secondItem="WMs-sR-Ivy" secondAttribute="trailing" id="j2x-1X-MME"/>
                         <constraint firstItem="aEh-Da-dsq" firstAttribute="top" secondItem="68E-hi-GZg" secondAttribute="top" id="jaV-6I-VlG"/>
                         <constraint firstItem="aEh-Da-dsq" firstAttribute="height" secondItem="68E-hi-GZg" secondAttribute="height" multiplier="1:4" id="lRw-rM-Mwg"/>
                         <constraint firstItem="pZE-t9-pl7" firstAttribute="width" secondItem="68E-hi-GZg" secondAttribute="width" multiplier="1:6" id="naq-wY-jph"/>
-                        <constraint firstItem="FIn-6A-I6a" firstAttribute="width" secondItem="68E-hi-GZg" secondAttribute="width" multiplier="3:6" id="rXg-g0-czN"/>
                         <constraint firstItem="pZE-t9-pl7" firstAttribute="height" secondItem="aEh-Da-dsq" secondAttribute="height" id="zGH-sm-dxA"/>
                     </constraints>
                 </view>

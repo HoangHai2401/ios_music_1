@@ -15,26 +15,36 @@ class PlayerView: UIView, NibOwnerLoadable {
     @IBOutlet private weak var trackBackgroundImage: UIImageView!
     @IBOutlet private weak var trackTitle: UILabel!
     @IBOutlet private weak var trackDescription: UILabel!
-    @IBOutlet private weak var trackProgress: NSLayoutConstraint!
     @IBOutlet private weak var trackMinDuration: UILabel!
     @IBOutlet private weak var trackMaxDuration: UILabel!
     @IBOutlet private weak var pauseAndPlayButtonImage: UIButton!
     @IBOutlet private weak var shuffleControlImage: UIButton!
     @IBOutlet private weak var loopControlImage: UIButton!
+    @IBOutlet private weak var trackSlider: UISlider!
     
-    fileprivate enum LoopStatus: Int {
-        case nonLoop 
-        case allLoop
-        case oneLoop
+    private struct Constants {
+        static let timeInterval = 0.1
+        static let playerLayerHeight = 10
+        static let playerLayerWidth = 10
+        static let oneThousand = 1000
+        static let secondsInAMinute = 60
+    }
+    
+    fileprivate enum LoopStatus {
+        case non
+        case all
+        case one
     }
 
     fileprivate var player: AVPlayer?
     fileprivate var playerItem: AVPlayerItem?
     fileprivate var isShuffling = false
-    fileprivate var loopStatus: LoopStatus = .nonLoop
+    fileprivate var loopStatus: LoopStatus = .non
     fileprivate let apiKey = APIKey()
+    var timer: Timer?
     var track: TrackInfo? {
         didSet {
+            timer?.invalidate()
             guard let track = track else {
                 self.reloadInputViews()
                 return }
@@ -45,6 +55,9 @@ class PlayerView: UIView, NibOwnerLoadable {
                 self.trackImage.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "SongImage2"))
                 self.trackBackgroundImage.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "SongImage2"))
             }
+            guard let maxDuration = track.trackModel?.duration else { return }
+            self.trackSlider.maximumValue = Float(maxDuration)
+            self.trackMaxDuration.text = convertTime(time: maxDuration)
             playTrack(track: track)
         }
     }
@@ -54,6 +67,9 @@ class PlayerView: UIView, NibOwnerLoadable {
     var nextShuffleTrack: (() -> Void)?
     var playBack: (() -> Void)?
     var loopAll: (() -> Void)?
+    
+    @IBAction func trackSliderAction(_ sender: Any) {
+    }
     
     @IBAction private func previousTrackAction(_ sender: Any) {
         previousTrack?()
@@ -74,7 +90,7 @@ class PlayerView: UIView, NibOwnerLoadable {
             nextShuffleTrack?()
         } else {
             nextTrack?()
-            if self.loopStatus == .allLoop {
+            if self.loopStatus == .all {
                 loopAll?()
             }
         }
@@ -92,47 +108,72 @@ class PlayerView: UIView, NibOwnerLoadable {
 
     @IBAction func loopControlAction(_ sender: Any) {
         switch loopStatus {
-        case .nonLoop:
+        case .non:
             self.loopControlImage.setImage(#imageLiteral(resourceName: "LoopButtonLoopAll"), for: .normal)
-            self.loopStatus = .allLoop
-        case .allLoop:
+            self.loopStatus = .all
+        case .all:
             self.loopControlImage.setImage(#imageLiteral(resourceName: "LoopButtonLoopOne"), for: .normal)
-            self.loopStatus = .oneLoop
+            self.loopStatus = .one
         default:
             self.loopControlImage.setImage(#imageLiteral(resourceName: "LoopButtonNonLoop"), for: .normal)
-            self.loopStatus = .nonLoop
+            self.loopStatus = .non
         }
     }
 
+    @objc private func updateTime() {
+        guard let cmTime = player?.currentTime() else { return }
+        trackSlider.value = Float(CMTimeGetSeconds(cmTime)) * Float(Constants.oneThousand)
+        let currentTime: Int = Int(CMTimeGetSeconds(cmTime)) * Constants.oneThousand
+        self.trackMinDuration.text = convertTime(time: currentTime)
+    }
+    
+    private func convertTime(time: Int) -> String {
+        let minute = time/(Constants.oneThousand * Constants.secondsInAMinute)
+        let second = time/Constants.oneThousand - minute * Constants.secondsInAMinute
+        if second < 10 {
+            return "\(minute):0\(second)"
+        } else {
+            return "\(minute):\(second)"
+        }
+    }
+    
     private func playTrack(track: TrackInfo?) {
-        guard let id = track?.trackModel?.id ,let url = URL (string: "https://api.soundcloud.com/tracks/\(id)/stream?client_id=\(apiKey.clientID)") else { return }
+        guard let id = track?.trackModel?.id,
+            let url = URL (string: "https://api.soundcloud.com/tracks/\(id)/stream?client_id=\(apiKey.clientID)") else { return }
         playerItem = AVPlayerItem(url: url)
         player = AVPlayer(playerItem: playerItem)
         let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = CGRect(x: 0, y: 0, width: 10, height: 50)
+        playerLayer.frame = CGRect(x: 0, y: 0, width: Constants.playerLayerWidth, height: Constants.playerLayerHeight)
+        removeSublayer()
+        self.layer.addSublayer(playerLayer)
+        player?.play()
+        timer = Timer.scheduledTimer(timeInterval: Constants.timeInterval, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        self.pauseAndPlayButtonImage.setImage(#imageLiteral(resourceName: "PauseButton"), for: .normal)
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(note:)),
+            name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
+    }
+    
+    private func removeSublayer() {
         guard let layerCount = self.layer.sublayers?.count else { return }
         if layerCount > 0 {
-            self.layer.sublayers?.forEach{ if $0.frame == CGRect(x: 0, y: 0, width: 10, height: 50) {
+            self.layer.sublayers?.forEach { if $0.frame == CGRect(x: 0, y: 0, width: Constants.playerLayerWidth, height: Constants.playerLayerHeight) {
                 $0.removeFromSuperlayer()
                 }
             }
         }
-        self.layer.addSublayer(playerLayer)
-        player?.play()
-        self.pauseAndPlayButtonImage.setImage(#imageLiteral(resourceName: "PauseButton"), for: .normal)
-        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(note:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
     }
     
     @objc func playerDidFinishPlaying(note: NSNotification) {
         print("Finished")
-        if self.loopStatus == .oneLoop {
+        self.timer?.invalidate()
+        if self.loopStatus == .one {
             playBack?()
         } else {
             if self.isShuffling == true {
                 nextShuffleTrack?()
             } else {
                 nextTrack?()
-                if self.loopStatus == .allLoop {
+                if self.loopStatus == .all {
                     loopAll?()
                 }
             }
