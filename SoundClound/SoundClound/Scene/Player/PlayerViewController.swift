@@ -10,10 +10,11 @@ import UIKit
 import AVFoundation
 import Reusable
 
-final class PlayerViewController: UIViewController {
+final class PlayerViewController: UIViewController, StoryboardSceneBased {
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var playerView: PlayerView!
     
+    static let sceneStoryboard = UIStoryboard(name: "Main", bundle: nil)
     var track: TrackInfo? {
         didSet {
             playerView?.track = track
@@ -23,11 +24,24 @@ final class PlayerViewController: UIViewController {
     var genre: GenreModel?
     var currentIndexPath: IndexPath?
     fileprivate var genreRepository: GenreRepository!
+    var trackList: [TrackInfo]?
+    var tabBarSelectedIndex: Int?
     
     private struct Constant {
         static let playerCellHeight = 350
         static let relatedTrackCellHeight = 100
-        static let numberOfDisplayingTrack = 50
+        static let numberOfDisplayingTrack = 80
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        guard let selectedIndex = tabBarSelectedIndex else { return }
+        print(selectedIndex)
+        switch selectedIndex {
+        case 2:
+            OfflineChecker.isOffline = true
+        default:
+            OfflineChecker.isOffline = false
+        }
     }
     
     override func viewDidLoad() {
@@ -40,15 +54,15 @@ final class PlayerViewController: UIViewController {
         playBackAction()
         loopAllAction()
         setTableView()
-        
-        genreRepository = GenreRepositoryImpl(api: APIService.share)
-        guard let genre = genre else { return }
-        getTracks(for: genre)
-        
+        setNavigationItem()
+    }
+    
+    private func setNavigationItem() {
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "< Back",
-            style: UIBarButtonItemStyle.plain,
-            target: self, action: #selector(back(sender:)))
+        let newBackButton = UIBarButtonItem(title: "Back",
+                                            style: UIBarButtonItemStyle.plain,
+                                            target: self, action: #selector(back(sender:)))
+        newBackButton.tintColor = UIColor.orange
         self.navigationItem.leftBarButtonItem = newBackButton
     }
     
@@ -67,10 +81,10 @@ final class PlayerViewController: UIViewController {
         playerView.loopAll = { [weak playerView, weak self] in
             guard let `self` = self else { return }
             if let currentIndexPath = self.currentIndexPath,
-                let genre = self.genre {
-                let trackCount = genre.tracks.count
+                let trackList = self.trackList {
+                let trackCount = trackList.count
                 if currentIndexPath.row == trackCount - 1 {
-                    let track = genre.tracks[0]
+                    let track = trackList[0]
                     self.currentIndexPath = IndexPath(row: 0, section: 0)
                     playerView?.track = track
                 }
@@ -82,10 +96,10 @@ final class PlayerViewController: UIViewController {
         playerView.playBack = { [weak playerView, weak self] in
             guard let `self` = self else { return }
             if let currentIndexPath = self.currentIndexPath,
-                let genre = self.genre {
-                let trackCount = genre.tracks.count
+                let trackList = self.trackList {
+                let trackCount = trackList.count
                 if currentIndexPath.row < trackCount - 1 {
-                    let track = genre.tracks[currentIndexPath.row]
+                    let track = trackList[currentIndexPath.row]
                     playerView?.track = track
                 }
             }
@@ -97,14 +111,15 @@ final class PlayerViewController: UIViewController {
             guard let `self` = self else { return }
             var nextIndexPath = IndexPath()
             if let currentIndexPath = self.currentIndexPath,
-                let genre = self.genre {
-                let trackCount = genre.tracks.count
-                if currentIndexPath.row < trackCount - 1 {
+                let trackList = self.trackList {
+                let trackCount = trackList.count
+                if currentIndexPath.row < trackCount {
                     repeat {
-                        nextIndexPath = IndexPath(row: Int(arc4random_uniform(UInt32(trackCount - 1))), section: 0)
+                        let randomTrack = Int(arc4random_uniform(UInt32(trackCount)))
+                        nextIndexPath = IndexPath(row: randomTrack, section: 0)
                     } while nextIndexPath.row == currentIndexPath.row
                     self.currentIndexPath = nextIndexPath
-                    let track = genre.tracks[nextIndexPath.row]
+                    let track = trackList[nextIndexPath.row]
                     playerView?.track = track
                 }
             }
@@ -115,12 +130,12 @@ final class PlayerViewController: UIViewController {
         playerView.nextTrack = { [weak playerView, weak self] in
             guard let `self` = self else { return }
             if let currentIndexPath = self.currentIndexPath,
-                let genre = self.genre {
-                let trackCount = genre.tracks.count
+                let trackList = self.trackList {
+                let trackCount = trackList.count
                 if currentIndexPath.row < trackCount - 1 {
                     let nextIndexPath = IndexPath(row: currentIndexPath.row + 1, section: 0)
                     self.currentIndexPath = nextIndexPath
-                    let track = genre.tracks[nextIndexPath.row]
+                    let track = trackList[nextIndexPath.row]
                     playerView?.track = track
                 }
             }
@@ -131,12 +146,11 @@ final class PlayerViewController: UIViewController {
         playerView.previousTrack = { [weak playerView, weak self] in
             guard let `self` = self else { return }
             if let currentIndexPath = self.currentIndexPath,
-                let genre = self.genre {
-                let trackCount = genre.tracks.count
+                let trackList = self.trackList {
                 if currentIndexPath.row > 0 {
                     let previousIndexPath = IndexPath(row: currentIndexPath.row - 1, section: 0)
                     self.currentIndexPath = previousIndexPath
-                    let track = genre.tracks[previousIndexPath.row]
+                    let track = trackList[previousIndexPath.row]
                     playerView?.track = track
                 }
             }
@@ -148,11 +162,10 @@ final class PlayerViewController: UIViewController {
             switch result {
             case .success(let value):
                 genre.tracks = value.tracks
-                //                if genre.tracks.index(where: {$0.trackModel?.id == removeTrack.trackModel?.id})
-                //                    .map({ genre.tracks.remove(at: $0)}) != nil {}
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
+                self?.trackList = genre.tracks
             case .failure(let error):
                 self?.showError(message: error?.localizedDescription ?? "")
             }
@@ -162,14 +175,15 @@ final class PlayerViewController: UIViewController {
 
 extension PlayerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return genre?.tracks.count ?? 0
+        guard let trackCount = trackList?.count else { return 0 }
+        return trackCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: RelatedTrackTableViewCell.self)
-        if let track = genre?.tracks[indexPath.row] {
-            cell.setContentForRelatedTrackCell(track: track)
-        }
+        guard let trackList = trackList else { return UITableViewCell() }
+        let track = trackList[indexPath.row]
+        cell.setContentForRelatedTrackCell(track: track)
         return cell
     }
 }
@@ -180,7 +194,8 @@ extension PlayerViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let track = genre?.tracks[indexPath.row]
+        guard let trackList = trackList else { return }
+        let track = trackList[indexPath.row]
         self.track = track
         currentIndexPath = indexPath
     }

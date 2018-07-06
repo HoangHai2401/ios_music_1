@@ -9,6 +9,8 @@
 import Foundation
 
 struct URLs {
-    private  static let apiBaseUrl = "https://api-v2.soundcloud.com"
+    private static let apiBaseUrl = "https://api-v2.soundcloud.com"
+    private static let apiBaseUrl1 = "https://api.soundcloud.com"
     public static let apiGenreUrl = apiBaseUrl + "/charts"
+    public static let apiSearchUrl = apiBaseUrl1 + "/tracks"
 }
