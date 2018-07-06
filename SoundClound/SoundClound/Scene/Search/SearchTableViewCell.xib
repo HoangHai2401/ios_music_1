@@ -22,7 +22,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="438" height="119.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SongImage" translatesAutoresizingMaskIntoConstraints="NO" id="GEw-da-W6T">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SongImage2" translatesAutoresizingMaskIntoConstraints="NO" id="GEw-da-W6T">
                         <rect key="frame" x="20" y="11" width="96" height="96"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="GEw-da-W6T" secondAttribute="height" id="oWe-zT-jk7"/>
@@ -65,6 +65,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="SongImage" width="246" height="246"/>
+        <image name="SongImage2" width="180" height="180"/>
     </resources>
 </document>
