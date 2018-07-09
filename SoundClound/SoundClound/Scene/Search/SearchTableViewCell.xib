@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchTableViewCell" rowHeight="120" id="KGk-i7-Jjw" customClass="SearchTableViewCell" customModule="SoundClound" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="438" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="438" height="119.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SongImage2" translatesAutoresizingMaskIntoConstraints="NO" id="GEw-da-W6T">
+                        <rect key="frame" x="20" y="11" width="96" height="96"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="GEw-da-W6T" secondAttribute="height" id="oWe-zT-jk7"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgC-vn-zpV">
+                        <rect key="frame" x="136" y="11" width="262" height="38.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjv-kH-KzI">
+                        <rect key="frame" x="136" y="59.5" width="262" height="25.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="GEw-da-W6T" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Bjc-8d-w6M"/>
+                    <constraint firstItem="GEw-da-W6T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="DHh-NK-Jvo"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="mgC-vn-zpV" secondAttribute="trailing" constant="20" id="KJQ-VO-IMZ"/>
+                    <constraint firstItem="mgC-vn-zpV" firstAttribute="top" secondItem="GEw-da-W6T" secondAttribute="top" id="Qwe-Ui-exH"/>
+                    <constraint firstItem="mgC-vn-zpV" firstAttribute="height" secondItem="GEw-da-W6T" secondAttribute="height" multiplier="2/5" id="REn-Pr-0Nu"/>
+                    <constraint firstItem="mgC-vn-zpV" firstAttribute="leading" secondItem="GEw-da-W6T" secondAttribute="trailing" constant="20" id="RZX-SN-lsI"/>
+                    <constraint firstItem="Yjv-kH-KzI" firstAttribute="trailing" secondItem="mgC-vn-zpV" secondAttribute="trailing" id="X2d-UL-nJH"/>
+                    <constraint firstItem="Yjv-kH-KzI" firstAttribute="height" secondItem="mgC-vn-zpV" secondAttribute="height" multiplier="2/3" id="XFO-fQ-hcb"/>
+                    <constraint firstItem="Yjv-kH-KzI" firstAttribute="leading" secondItem="mgC-vn-zpV" secondAttribute="leading" id="cg8-Pb-HCN"/>
+                    <constraint firstItem="GEw-da-W6T" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="4/5" id="eqZ-m6-SXn"/>
+                    <constraint firstItem="Yjv-kH-KzI" firstAttribute="top" secondItem="mgC-vn-zpV" secondAttribute="bottom" constant="10" id="fyc-bD-Oxe"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="trackDescription" destination="Yjv-kH-KzI" id="wCW-ao-1Xp"/>
+                <outlet property="trackImage" destination="GEw-da-W6T" id="5eq-KB-Qfe"/>
+                <outlet property="trackTitle" destination="mgC-vn-zpV" id="cDt-DY-oCT"/>
+            </connections>
+            <point key="canvasLocation" x="100" y="97"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="SongImage2" width="180" height="180"/>
+    </resources>
+</document>

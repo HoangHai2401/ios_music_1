@@ -18,5 +18,9 @@ final class TrackInfo: BaseModel {
     func mapping(map: Map) {
         trackModel <- map["track"]
     }
+    
+    init (track: TrackModel) {
+        self.trackModel = track
+    }
 }
 
